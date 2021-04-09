@@ -1,10 +1,13 @@
 from autoloader import *
 
-root = Tk()
-root.geometry("500x380")
-root.title('Editor+')
+info=JsonParser('config/info.json').parse()
 
-#root.iconphoto(False, PhotoImage(file = 'icon.png'))
+root = Tk()
+root.geometry(info['AppScreen'])
+root.title(info['AppName'])
+root.resizable=False
+
+#root.iconphoto(False, PhotoImage(file = 'assets/icon.png'))
 
 NewStore= Store(1)
 
@@ -18,8 +21,6 @@ props={
 }
 
 FileInt=FileInterface(props)
-tab=TabContronller(props=props)
-props['Tabs']=tab
 
 ViewsEntry=Index(props=props)
 ViewsEntry.main()

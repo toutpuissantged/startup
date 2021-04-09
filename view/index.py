@@ -1,6 +1,7 @@
 from autoloader import *
 
 class Index():
+    ''' entry class for organize user interface '''
 
     def __init__(self,props):
         self.props=props
@@ -14,13 +15,14 @@ class Index():
         self.props['Views']['Menu']=menubar
         root.config(menu=menubar)
         
-        NavBar=FileMenu(props=props)
-        NavBar2=EditMenu(props=props)
-
-        File=NavBar.monted()
-        Edit=NavBar2.monted()
+        File=FileMenu(props=props).monted()
+        Edit=EditMenu(props=props).monted()
+        Help=HelpMenu(props).monted()
 
         menubar.add_cascade(label='File', menu=File)
         menubar.add_cascade(label='Edit', menu=Edit)
+        menubar.add_cascade(label='Help', menu=Help)
+
+        BaseTheme(props=props).Main()
 
         return 0
