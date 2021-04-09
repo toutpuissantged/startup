@@ -9,8 +9,8 @@ build_exe_options = {
 #base = None
 #if sys.platform == "win32":
 base = "Win32GUI"
-setup( name = "editorplus",
+setup( name = "Startup",
 version = "0.1",
-description = "Text editor Programme",
+description = "Simple base Template for tkinter app",
 options = {"build_exe": build_exe_options},
 executables = [Executable("main.py", base=base)])
